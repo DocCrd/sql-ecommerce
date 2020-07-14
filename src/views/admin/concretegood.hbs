@@ -1,0 +1,27 @@
+<form method='POST' action='/update-good/{{product.pid}}'>
+  <div class='table-responsive'>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th>Категория</th>
+          <th>Наименование</th>
+          <th>Детали</th>
+          <th>Цена</th>
+          <th>Картинки</th>
+          <th>Колличество</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input type='text' class='form-control' style='width: 50px;' name='category' value='{{product.category}}'/></td>
+          <td><input type='text' class='form-control' style='width: 200px;' name='title' value='{{product.title}}'/></td>
+          <td><input type='text' class='form-control' style='width: 300px;' name='details' value='{{product.details}}'/></td>
+          <td><input type='text' class='form-control' style='width: 50px;' name='price' value='{{product.price}}'/></td>
+          <td><input type='text' class='form-control' style='width: 200px;' name='picture' value='{{product.picture}}'/></td>
+          <td><input type='text' class='form-control' style='width: 50px;' name='quantity' value='{{product.quantity}}'/></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <button class='btn btn-success float-right' style='margin-right: 10px;'>Обновить товар</button>
+</form>

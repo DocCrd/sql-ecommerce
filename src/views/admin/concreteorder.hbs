@@ -1,0 +1,38 @@
+<div class='table-responsive'>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>#id товара</th>
+        <th>#id заказа</th>
+        <th>Колличество</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each @root.products}}
+        <tr>
+          <td>{{this.product_id}}</td>
+          <td>{{this.order_id}}</td>
+          <td>{{this.quantity}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+<div class="payment-info">
+  <h6 class="regular">Статус платежа</span></h6>
+  {{#if payment.paid}}
+  <div class="payment-status">
+    <div class="icon success">
+      <i class="material-icons">done</i>
+    </div>
+  </div>
+  <h6 class="payment-status-text font-green">Оплачено</h6>
+  {{else}}
+  <div class="payment-status">
+    <div class="icon error">
+      <i class="material-icons">error_outline</i>
+    </div>
+  </div>
+  <h6 class="payment-status-text font-red">Не оплачено</h6>
+  {{/if}}
+</div>

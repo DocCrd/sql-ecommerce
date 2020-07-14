@@ -1,0 +1,22 @@
+<div class="row fixed-top px-2 d-flex justify-content-md-center">
+  <a class="nav-link text-dark d-flex justify-content-md-center" href="/cart">
+    <div class="row d-flex justify-content-md-center">
+      <div class="col position-static">
+        <h3>
+          <div class="icon dripicons-basket"></div>
+        </h3>
+      </div>
+      <div class="col p-1 position-static d-none d-sm-block">
+        {{#if @root.goodsincart}}
+          <div class="">{{@root.goodsincart}} тв.</div>
+          <div class="text-muted">{{@root.costcart}}p.</div>
+        {{else}}
+          <div class="text-muted">Корзина пуста</div>
+        {{/if}}
+      </div>
+    </div>
+  </a>
+
+</div>
+
+<link rel="stylesheet" href="/css/webfont.css">

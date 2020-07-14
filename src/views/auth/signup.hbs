@@ -1,0 +1,56 @@
+<div class="container p-4">
+  <div class="row">
+    <div class="col-md-4 mx-auto">
+      <div class="card text-center">
+        <div class="card-header">
+          <h3>SignUp</h3>
+        </div>
+        <div class="card-body">
+          <form action="/signup" method="POST">
+            <div class="form-group">
+              <input type="text" name="fullname" placeholder="Ваше Полное Имя" class="form-control" autofocus required>
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" placeholder="EMAIL" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <input type="text" name="phone" placeholder="Телефонный номер" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <input type="text" name="username" placeholder="Имя пользователя" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <input type="password" name="password" placeholder="Пароль" class="form-control" onchange="loggerr(this.value)" required>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-success btn-block" onclick="">
+                SignUp
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  const inputpass = '/^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{6,}$/';
+  const secinputpass = '/(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}/g';
+
+
+  function loggerr(str) {
+    alert(str);
+    console.log('i');
+  }
+  function loggerr() {
+    var passtring = document.getElementsByName('password').textContent;
+    if (true) {
+    } else {
+      console.log(спасибо);
+    }
+  }
+
+  //onchange =
+
+</script>

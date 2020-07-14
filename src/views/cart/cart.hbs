@@ -1,0 +1,36 @@
+  <form method='POST' action='/update-cart'>
+    {{#iff products.length '>' 0}}
+      <div class='table-responsive'>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Товар</th>
+              <th>Цена</th>
+              <th>Колличество</th>
+              <th>Действие</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each @root.products}}
+              <tr>
+                <td><a class='text-body' href='/product/{{this.pid}}'><img style='max-width: 100px; max-height: 50px;' src='/img/goods/6800182/{{trimProperty this.picture}}'></a></td>
+                <td><a class='text-body' href='/product/{{this.pid}}'> {{this.title}}</a><br><span class='badge badge-warning'> {{this.name}}</span></td>
+                <td>
+                  <p class='form-control' name='onceprice'>{{this.price}}</p>
+                </td>
+                <td><input type='number' class='form-control' style='width: 70px;' min='1' name='qnt' value='{{this.qnt}}' /></td>
+                <td><a href='/remove-from-cart/pid-{{@index}}-{{this.pid}}'>Удалить</a></td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+      <a href='/empty-cart' class='btn btn-danger float-left'>Очистить корзину</a>
+      <a href='/checkout' class='btn btn-primary float-right'>Оплатить покупки</a>
+      <button class='btn btn-success float-right' style='margin-right: 10px;'>Обновить корзину</button>
+      <div class='clearfix'></div>
+      {{else}}
+        <p>Ваша корзина пуста. <a href='/goodsboard'>Смотреть товары</a> </p>
+    {{/iff}}
+  </form>

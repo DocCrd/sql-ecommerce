@@ -1,0 +1,42 @@
+ <div class="row mb-2 p-5">
+   <div class="col-md-1">
+     {{#each pics}}
+       <div class="card flex-md-row mb-4 box-shadow h-md-250">
+         <img class="thumb img-fluid" src="/img/goods/6800182/{{this}}" data-zoom-padding="20" data-zoom-url="/img/goods/6800182/{{this}}" data-zoom-overlay="true" />
+       </div>
+     {{/each}}
+   </div>
+
+   <div class="col-md-5">
+     <div class="card flex-md-row mb-4 box-shadow h-md-250">
+       <div class="card rounded-0">
+         <div class="card-body">
+           <img class="img-fluid" data-action="zoom" src="/img/goods/6800182/{{trimProperty product.picture}}" data-zoom-padding="20" data-zoom-url="/img/goods/6800182/{{trimProperty product.picture}}" data-zoom-overlay="true" />
+           <h4 class="card-title">{{product.title}}</h4>
+           <span class="badge badge-warning">{{product.name}}</span>
+           <p class="card-text">{{product.details}}</p>
+         </div>
+       </div>
+     </div>
+   </div>
+
+   <div class="col-md-3">
+     <div class="card-body">
+       <h1 class="card-title pricing-card-title">Наличие <small class="text-muted">/ цена</small></h1>
+       <ul class="list-unstyled mt-3 mb-4">
+         <li>Цена: {{product.price}} рублей</li>
+         <li>{{product.quantity}} шт. в наличии</li>
+       </ul>
+       {{#iff product.quantity '==' 0}}
+         <a class="btn btn-primary" href="/goodsboard">Перейти в магазин</a>
+         {{else}}
+           <form class="crud-form" action="/concretegood/add-to-cart/pid-{{../product.pid}}" method="POST">
+             <button class="btn btn-primary" type="submit">Добавить в корзину</button>
+           </form>
+       {{/iff}}
+     </div>
+   </div>
+ </div>
+
+ <script src="/js/imagezoom.js"></script>
+ <link rel="stylesheet" href="/css/imagezoom.css">

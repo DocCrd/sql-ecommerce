@@ -1,0 +1,49 @@
+ <div class="card-deck mb-3 text-center p-5">
+
+   <div class="row d-flex bd-highlight">
+     {{#each products}}
+       <div class="col-md-4 flex-fill bd-highlight p-2">
+         <div class="card mb-2 shadow-sm h-100">
+           <a class="text-body h-100" href="/product/{{this.pid}}">
+             <img class="img-fluid card-img-top" src="/img/goods/6800182/{{trimProperty this.picture}}" />
+           </a>
+           <div class="card-body flex-shrink-1">
+             <a class="text-body" href="/product/{{this.pid}}">
+               <h4 class="card-title">{{this.title}}</h4>
+             </a>
+             <h1 class="card-title pricing-card-title"> {{@root.rouble}}{{this.price}} <small class="text-muted">/ py</small></h1>
+             {{#forch @root.pids this.pid}}
+               <a class="btn btn-outline-info btn-block" href="/cart">{{@root.stredincart}}</a>
+               {{else}}
+
+                 <form class="crud-form" action="/add-to-cart/pid-{{../this.pid}}-{{@root.currentPage}}" method="POST">
+                   <button class="btn btn-outline-primary btn-block" type="submit"><i class="fa fa-cart-plus" area-hidden="true"></i> {{@root.straddin}}</button>
+                 </form>
+             {{/forch}}
+           </div>
+         </div>
+       </div>
+     {{/each}}
+   </div>
+ </div>
+
+ {{#pagination currentPage pageCount size}}
+   <div class="pagination">
+     {{#unless startFromFirstPage}}
+       <a href="#">&lt;</a>
+     {{/unless}}
+
+     {{#each pages}}
+       {{#if isCurrent}}
+         [<a href="/goodsboard/{{page}}">{{page}}</a>]
+       {{/if}}
+       {{#unless isCurrent}}
+         <a href="/goodsboard/{{page}}">{{page}}</a>
+       {{/unless}}
+     {{/each}}
+
+     {{#unless endAtLastPage}}
+       <a href="#">&gt;</a>
+     {{/unless}}
+   </div>
+ {{/pagination}}

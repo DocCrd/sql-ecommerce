@@ -1,0 +1,30 @@
+<div class='table-responsive'>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>#id</th>
+        <th>Дата</th>
+        <th>Сумма</th>
+        <th>Полное имя</th>
+        <th>Телефон</th>
+        <th>el-почта</th>
+        <th>Адрес доставки</th>
+        <th>Посёлок</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each @root.orders}}
+        <tr>
+          <td><a class='text-body' href='/myorder/{{this.id}}'>{{this.id}}</a></td>
+          <td>{{this.orddate}}</td>
+          <td>{{this.amount}}</td>
+          <td>{{this.fullname}}</td>
+          <td>{{this.phone}}</td>
+          <td>{{this.email}}</td>
+          <td>{{this.cl_address}}</td>
+          <td>{{this.cl_town}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

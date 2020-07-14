@@ -1,0 +1,35 @@
+<div class='table-responsive'>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>pid</th>
+        <th>Категория</th>
+        <th>Наименование</th>
+        <th>Детали</th>
+        <th>Цена</th>
+        <th>Картинки</th>
+        <th>Колличество</th>
+        <th>Удаление</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each @root.admingoods}}
+        <tr>
+          <td><a class='text-body' href='/admproduct/{{this.pid}}'>{{this.pid}}</a></td>
+          <td><a class='text-body' href='/admproduct/{{this.pid}}'>{{this.category}}</a></td>
+          <td><a class='text-body' href='/admproduct/{{this.pid}}'>{{this.title}}</a></td>
+          <td><a class='text-body' href='/admproduct/{{this.pid}}'>{{trimStringMin this.details}}</a></td>
+          <td><a class='text-body' href='/admproduct/{{this.pid}}'>{{this.price}}</a></td>
+          <td><a class='text-body' href='/admproduct/{{this.pid}}'>{{this.picture}}</a></td>
+          <td><a class='text-body' href='/admproduct/{{this.pid}}'>{{this.quantity}}</a></td>
+          <td>
+            <form method='POST' action='/remove-from-allglist/pid-{{this.pid}}'>
+              <button class='btn btn-link'>Удалить</button>
+            </form>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+<a href='/add-to-allglist' class='btn btn-primary float-right'>Добавить товар</a>

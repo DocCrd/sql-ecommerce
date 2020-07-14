@@ -1,0 +1,89 @@
+<div class="row p-2">
+  <div class="col-md-8 order-md-1">
+    <h4 class="mb-3">Персональная информация</h4>
+    <form class="crud-form" action="/payment" method="POST">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="firstName">Введите ваше полное имя</label>
+          <input type="text" class="form-control" name="fullname" class="crud-input" value='{{fullname}}' required>
+          <div class="invalid-feedback">
+            Нужно ввести полное имя.
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="lastName">Телефонный номер</label>
+          <input type="text" class="form-control" name="phone" class="crud-input" value='{{phone}}' required>
+          <div class="invalid-feedback">
+            Нужно ввести номер.
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="email">Email <span class="text-muted">(Optional)</span></label>
+        <input type="email" class="form-control" name="email" value='{{email}}' required placeholder="you@example.com">
+        <div class="invalid-feedback">
+          Нужно ввести электронную почту.
+        </div>
+      </div>
+
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="deliveryCheck">
+        <label class="form-check-label">Доставить по адресу</label>
+      </div>
+
+      <div class="mb-3">
+        <label for="address">Адрес доставки</label>
+        <input type="text" class="form-control" id="address" placeholder="Ленина, 5" disabled>
+        <div class="invalid-feedback">
+          Нужно ввести адрес доставки.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="country">Населённый пункт</label>
+        <select class="custom-select d-block w-100" id="town" disabled>
+          <option value="">Выбрать...</option>
+          <option>Провидения</option>
+          <option>Новое Чаплино</option>
+        </select>
+        <div class="invalid-feedback">
+          Выберите пункт.
+        </div>
+      </div>
+
+      <h5 class="line-title total">Итог: <span id="totalPrice">{{@root.costcart}}</span> рублей</h5>
+      <input class="hiddenTotalPrice" type="hidden" name="totalPriceHidden">
+
+      <button id="subme" class="btn btn-primary btn-lg btn-block" type="submit">Перейти к оплате</button>
+    </form>
+  </div>
+</div>
+<script type="text/javascript">
+  var adressel = document.querySelector('#address');
+  var townel = document.querySelector('#town');
+  const delchklst = document.querySelector('#deliveryCheck').addEventListener('click', function(e) {
+    var strcheck = '' + this.getAttribute('value');
+    if (strcheck == 'null') {
+      this.setAttribute('value', 'true');
+      adressel.setAttribute('required', 'true');
+      townel.setAttribute('required', 'true');
+      adressel.removeAttribute('disabled');
+      townel.removeAttribute('disabled');
+    } else {
+      if (this.getAttribute('value') == 'true') {
+        this.setAttribute('value', 'false');
+        adressel.setAttribute('required', 'false');
+        townel.setAttribute('required', 'false');
+        adressel.setAttribute('disabled', 'true');
+        townel.setAttribute('disabled', 'true');
+      } else {
+        this.setAttribute('value', 'true');
+        adressel.setAttribute('required', 'true');
+        townel.setAttribute('required', 'true');
+        adressel.removeAttribute('disabled');
+        townel.removeAttribute('disabled');
+      }
+    }
+  });
+</script>
